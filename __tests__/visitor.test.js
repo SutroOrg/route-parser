@@ -2,8 +2,8 @@
 
 'use strict';
 
-var assert = require('chai').assert;
-var createVisitor = require('../lib/route/visitors/create_visitor');
+import { describe, it, expect } from "vitest";
+import createVisitor from '../lib/route/visitors/create_visitor.js';
 
 function sillyVisitor(node) {
   return node.displayName;
@@ -12,11 +12,11 @@ function sillyVisitor(node) {
 
 describe('createVisitor', function () {
   it('should throw if not all handler node types are defined', function () {
-    assert.throw(function () {
+    expect(function () {
       createVisitor({ Root: function () {} });
     },
-      /No handler defined/
-    );
+      
+    ).toThrow(/No handler defined/);
   });
 
   it('should create when all handlers are defined', function () {
@@ -35,6 +35,6 @@ describe('createVisitor', function () {
       Param: sillyVisitor
     });
 
-    assert.ok(visitor);
+    expect(visitor).toBeDefined();
   });
 });
