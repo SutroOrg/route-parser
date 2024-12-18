@@ -1,6 +1,6 @@
 {
-  "name": "route-parser",
-  "version": "0.0.5",
+  "name": "@sutro-dev/route-parser",
+  "version": "1.0.1",
   "description": "A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser. ",
   "keywords": [
     "url",
@@ -19,11 +19,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rcs/route-parser.git"
+    "url": "https://github.com/SutroOrg/route-parser"
   },
   "bugs": {
-    "url": "http://github.com/rcs/route-parser/issues",
-    "email": "rcsorensen@gmail.com"
+    "email": "eng@withsutro.com"
   },
   "engines": {
     "node": ">= 0.9"
@@ -62,5 +61,6 @@
     "webpack": "~1.12.14",
     "webpack-dev-server": "~1.14.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
