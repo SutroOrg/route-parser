@@ -3,7 +3,7 @@
 "use strict";
 
 import { describe, it, expect } from "vitest";
-import RouteParser from "../index.js";
+import {Route as RouteParser} from "../index.js";
 
 describe("Route", function () {
   it("should create", function () {

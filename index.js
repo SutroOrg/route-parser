@@ -6,4 +6,4 @@
 
 var Route = require('./lib/route');
 
-module.exports = Route;
+module.exports.Route = Route;
