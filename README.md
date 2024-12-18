@@ -46,33 +46,3 @@ Some examples:
 ## How does it work?
 
 We define a grammar for route specifications and parse the route. Matching is done by generating a regular expression from that tree, and reversing is done by filling in parameter nodes in the tree.
-
-
-
-
-## FAQ
-### Isn't this over engineered? A full parser for route specifications?
-Not really. Parsing route specs into regular expressions gets to be problematic if you want to do named captures and route reversing. Other routing libraries have issues with parsing one of `/foo(/:bar)` or `/foo(/:bar)`, and two-pass string-to-RegExp transforms become complex and error prone.
-
-Using a parser here also gives us the chance to give early feedback for any errors that are made in the route spec.
-
-### Why not use...
-
-#### [RFC 6570 URI Templates](http://tools.ietf.org/html/rfc6570) directly?
-
-URI templates are designed for expanding data into a template, not matching a route.  Taking an arbitrary path and matching it against a URI template isn't defined. In the expansion step of URI templates, undefined variables can be evaluated to `''`, which isn't useful when trying to do route matching, optional or otherwise. To use a URI-template-like language is possible, but needs to be expanded past the RFC
-
-### [Express](http://expressjs.com/)/[Backbone.Router](http://backbonejs.org/docs/backbone.html#section-155)/[Director](https://github.com/flatiron/director) style routers
-
-These all lack named parameters and reversability.
-
-Named parameters are less brittle and reduce the coupling betwen routes and their handlers. Given the routes `/users/:userid/photos/:category` and `/photos/:category/users/:userid`, backbone style routing solutions require two different handlers. Named parameters let you use just one.
-
-Reversibility means you can use a single route table for your application for matching and generating links instead of throwing route helper functions throughout your code.
-
-
-## Related
-
-* [rails/journey](http://github.com/rails/journey)
-* [url-pattern](http://github.com/snd/url-pattern)
-* [Director](https://github.com/flatiron/director)
