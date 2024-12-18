@@ -1,6 +1,6 @@
 {
   "name": "@sutro-dev/route-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser. ",
   "keywords": [
     "url",
@@ -10,7 +10,13 @@
     "regex",
     "match"
   ],
-  "homepage": "http://github.com/rcs/route-parser",
+  "homepage": "https://github.com/SutroOrg/route-parser",
+  "maintainers": [
+    {
+      "name": "Dan Rumney",
+      "email": "dan@withsutro.com"
+    }
+  ],
   "author": {
     "name": "Ryan Sorensen",
     "email": "rcsorensen@gmail.com",
