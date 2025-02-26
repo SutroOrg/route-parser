@@ -28,6 +28,7 @@
     "type": "git",
     "url": "https://github.com/SutroOrg/route-parser"
   },
+  "type": "module",
   "bugs": {
     "email": "eng@withsutro.com"
   },
@@ -41,8 +42,8 @@
     "test": "vitest",
     "test-node": "mocha",
     "test-client": "karma start --singleRun",
-    "compile-parser": "scripts/compile_parser.js",
-    "clean-compile": "rm ./lib/route/compiled-grammar.js",
+    "compile-parser": "scripts/compile_parser.mjs",
+    "clean-compile": "rm ./lib/route/compiled-grammar.mjs",
     "lint": "eslint ."
   },
   "license": "MIT",

@@ -4,6 +4,4 @@
 
 "use strict";
 
-const Route = require("./lib/route");
-
-export { Route };
+export { Route } from "./lib/route";
