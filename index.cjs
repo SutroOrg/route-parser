@@ -2,8 +2,8 @@
  * @module Passage
  */
 
-'use strict';
+"use strict";
 
-var Route = require('./lib/route');
+var Route = require("./lib/route");
 
 module.exports.Route = Route;
