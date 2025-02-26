@@ -22,7 +22,7 @@
     "email": "rcsorensen@gmail.com",
     "url": "https://github.com/rcs"
   },
-  "main": "index.js",
+  "main": "lib/route.js",
   "types": "types/index.d.ts",
   "repository": {
     "type": "git",
@@ -42,8 +42,8 @@
     "test": "vitest",
     "test-node": "mocha",
     "test-client": "karma start --singleRun",
-    "compile-parser": "scripts/compile_parser.mjs",
-    "clean-compile": "rm ./lib/route/compiled-grammar.mjs",
+    "compile-parser": "scripts/compile_parser.js",
+    "clean-compile": "rm ./lib/route/compiled-grammar.js",
     "lint": "eslint ."
   },
   "license": "MIT",

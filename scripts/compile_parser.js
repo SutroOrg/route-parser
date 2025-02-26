@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { writeFileSync } from "fs";
 import { join } from "path";
-import grammar from "../lib/route/grammar.mjs";
+import grammar from "../lib/route/grammar.js";
 
 import jison from "jison";
 import Lexer from "jison-lex";
@@ -19,7 +19,7 @@ var compiledGrammar = parser
   .replace(/_token_stack:\s?/, "");
 
 writeFileSync(
-  join(import.meta.dirname, "/../lib/route/compiled-grammar.mjs"),
+  join(import.meta.dirname, "/../lib/route/compiled-grammar.js"),
   [
     compiledGrammar,
     `
