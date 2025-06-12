@@ -187,4 +187,24 @@ describe("Route", function () {
       );
     });
   });
+
+  describe("comparison", function () {
+    it("should compare two routes with the same spec as equal", function () {
+      var route1 = new RouteParser("/foo");
+      var route2 = new RouteParser("/foo");
+      expect(route1).toEqual(route2);
+    });
+
+    it("should compare two routes with different specs as not equal", function () {
+      var route1 = new RouteParser("/foo");
+      var route2 = new RouteParser("/bar");
+      expect(route1).not.toEqual(route2);
+    });
+
+    it("should compare two routes different path parameters as not equal", function () {
+      var route1 = new RouteParser("/foo/:id");
+      var route2 = new RouteParser("/foo/:notId");
+      expect(route1).not.toEqual(route2);
+    });
+  });
 });
