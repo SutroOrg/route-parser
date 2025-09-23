@@ -207,4 +207,23 @@ describe("Route", function () {
       expect(route1).not.toEqual(route2);
     });
   });
+
+  describe("generate", function () {
+    it("should generate a path with simple params", function () {
+      var route = new RouteParser("/:foo/:bar");
+      expect(route.reverse({ foo: "1", bar: "2" })).toEqual("/1/2");
+    });
+    it("should generate a path with splat params", function () {
+      var route = new RouteParser("/foo/*bar/baz");
+      expect(route.reverse({ bar: "one/two" })).toEqual("/foo/one/two/baz");
+    });
+    it("should generate a path with optional params", function () {
+      var route = new RouteParser("/things/(option/:first)");
+      expect(route.reverse({ first: "bar" })).toEqual("/things/option/bar");
+    });
+    it("should generate a path with unfilled optional params", function () {
+      var route = new RouteParser("/things/(option/:first)");
+      expect(route.reverse()).toEqual("/things/");
+    });
+  });
 });
