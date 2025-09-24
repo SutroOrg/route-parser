@@ -1,9 +1,5 @@
-/* global describe, it */
-
-"use strict";
-
 import { describe, expect, it } from "vitest";
-import { Route as RouteParser } from "../src/route.ts";
+import { Route as RouteParser } from "../src/route.js";
 
 describe("Route", function () {
   it("should create", function () {

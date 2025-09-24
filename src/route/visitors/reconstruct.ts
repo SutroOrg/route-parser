@@ -1,6 +1,6 @@
 "use strict";
 
-import { createVisitor } from "./create_visitor.js";
+import { createVisitor, type Visitor } from "./create_visitor.js";
 
 /**
  * Visitor for the AST to reconstruct the normalized input
@@ -8,13 +8,11 @@ import { createVisitor } from "./create_visitor.js";
  * @borrows Visitor-visit
  */
 export const ReconstructVisitor = createVisitor({
-  Concat: function (node) {
+  Concat: function (this: Visitor<never, string>, node) {
     return node.children
-      .map(
-        function (child) {
-          return this.visit(child);
-        }.bind(this)
-      )
+      .map((child) => {
+        return this.visit(child);
+      })
       .join("");
   },
 
@@ -30,11 +28,11 @@ export const ReconstructVisitor = createVisitor({
     return ":" + node.props.name;
   },
 
-  Optional: function (node) {
-    return "(" + this.visit(node.children[0]) + ")";
+  Optional: function (this: Visitor<never, string>, node) {
+    return "(" + this.visit(node.children[0]!) + ")";
   },
 
-  Root: function (node) {
-    return this.visit(node.children[0]);
+  Root: function (this: Visitor<never, string>, node) {
+    return this.visit(node.children[0]!);
   },
 });

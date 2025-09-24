@@ -22,8 +22,12 @@
     "email": "rcsorensen@gmail.com",
     "url": "https://github.com/rcs"
   },
-  "main": "lib/route.js",
-  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/route.js"
+    },
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/SutroOrg/route-parser"
@@ -40,23 +44,29 @@
   },
   "scripts": {
     "test": "vitest",
-    "test-node": "mocha",
-    "test-client": "karma start --singleRun",
+    "build": "tsc && pnpm copy:parser",
+    "copy:parser": "cp src/route/compiled-grammar.js dist/route/compiled-grammar.js",
     "compile-parser": "scripts/compile_parser.js",
-    "clean-compile": "rm ./lib/route/compiled-grammar.js",
+    "clean-compile": "rm ./src/route/compiled-grammar.js",
     "lint": "eslint ."
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.7.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-config-airbnb-base": "^8.0.0",
-    "eslint-plugin-import": "^1.16.0",
-    "jison": "~0.4.17",
+    "@eslint/config-helpers": "^0.4.0",
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jison": "~0.4.18",
     "jison-lex": "~0.3.4",
-    "jsdoc": "~3.4.0",
-    "vitest": "^2.1.8"
+    "jsdoc": "~3.4.3",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1",
+    "vitest": "^2.1.9"
   },
-  "dependencies": {},
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "pnpm@10.16.1+sha512.0e155aa2629db8672b49e8475da6226aa4bdea85fdcdfdc15350874946d4f3c91faaf64cbdc4a5d1ab8002f473d5c3fcedcd197989cf0390f9badd3c04678706"
 }

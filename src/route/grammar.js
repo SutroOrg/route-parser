@@ -22,7 +22,6 @@ function o(patternString, action) {
 }
 
 export default {
-  /* eslint-disable no-multi-spaces */
   lex: {
     rules: [
       ["\\(", 'return "(";'],
@@ -55,5 +54,4 @@ export default {
     param: [o("PARAM", "yytext.slice(1)")],
   },
   startSymbol: "root",
-  /* eslint-enable no-multi-spaces */
 };

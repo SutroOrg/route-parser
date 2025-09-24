@@ -3,7 +3,7 @@
  */
 
 "use strict";
-
+// @ts-expect-error No types available
 import { parser } from "./compiled-grammar.js";
 import * as nodes from "./nodes.js";
 

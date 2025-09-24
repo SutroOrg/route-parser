@@ -1,7 +1,7 @@
 {
   "source": {
-    "include": ["lib", "index.js"],
-    "exclude": ["./lib/route/compiled-grammar.js"]
+    "include": ["src", "index.js"],
+    "exclude": ["./src/route/compiled-grammar.js"]
   },
   "opts": {
     "destination": "./docs/",

@@ -1,11 +1,8 @@
-/* global describe, it */
-
-"use strict";
-
 import { describe, expect, it } from "vitest";
-import { createVisitor } from "../src/route/visitors/create_visitor.ts";
+import { createVisitor } from "../src/route/visitors/create_visitor.js";
+import type { AstNode } from "../src/route/nodes.js";
 
-function sillyVisitor(node) {
+function sillyVisitor(node: AstNode) {
   return node.displayName;
 }
 

@@ -17,3 +17,6 @@ build
 node_modules
 coverage
 docs
+
+dist
+.turbo
