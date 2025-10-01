@@ -17,6 +17,7 @@ describe("Route", function () {
 
   it("should throw on no spec", function () {
     expect(function () {
+      // @ts-expect-error Intentional to test error
       new RouteParser();
     }).toThrowError(/spec is required/);
   });
@@ -48,7 +49,7 @@ describe("Route", function () {
     });
   });
 
-  describe("basic parameters", function () {
+  describe("basic parameters (:)", function () {
     it("should match /users/:id with a path of /users/1", function () {
       const route = new RouteParser("/users/:id");
       expect(route.match("/users/1")).toBeDefined();
@@ -67,6 +68,34 @@ describe("Route", function () {
     it("should match deep pathing and get parameters", function () {
       const route = new RouteParser(
         "/users/:id/comments/:comment/rating/:rating"
+      );
+      expect(route.match("/users/1/comments/cats/rating/22222")).toEqual({
+        id: "1",
+        comment: "cats",
+        rating: "22222",
+      });
+    });
+  });
+
+  describe("basic parameters ({})", function () {
+    it("should match /users/{id} with a path of /users/1", function () {
+      const route = new RouteParser("/users/{id}");
+      expect(route.match("/users/1")).toBeDefined();
+    });
+
+    it("should not match /users/{id} with a path of /users/", function () {
+      const route = new RouteParser("/users/{id}");
+      expect(route.match("/users/")).toBeFalsy();
+    });
+
+    it("should match /users/{id} with a path of /users/1 and get parameters", function () {
+      const route = new RouteParser("/users/{id}");
+      expect(route.match("/users/1")).toEqual({ id: "1" });
+    });
+
+    it("should match deep pathing and get parameters", function () {
+      const route = new RouteParser(
+        "/users/{id}/comments/{comment}/rating/{rating}"
       );
       expect(route.match("/users/1/comments/cats/rating/22222")).toEqual({
         id: "1",

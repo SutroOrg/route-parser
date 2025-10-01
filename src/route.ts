@@ -67,7 +67,7 @@ export class Route {
    * @param  {Object} params The parameters to fill in
    * @return {(String|false)} The filled in path
    */
-  reverse(params: Record<string, string>): string | false {
+  reverse(params?: Record<string, string | number>): string | number | false {
     return ReverseVisitor.visit(this.ast, params);
   }
 

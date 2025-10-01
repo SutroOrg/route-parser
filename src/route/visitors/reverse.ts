@@ -8,11 +8,11 @@ import { createVisitor, type Visitor } from "./create_visitor.js";
  * @borrows Visitor-visit
  */
 export const ReverseVisitor: Visitor<
-  Record<string, string>,
-  string | false
+  Record<string, string | number>,
+  string | number | false
 > = createVisitor({
   Concat: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node,
     context
   ) {
@@ -31,14 +31,14 @@ export const ReverseVisitor: Visitor<
   },
 
   Literal: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node
   ) {
     return decodeURI(node.props.value);
   },
 
   Splat: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node,
     context = {}
   ) {
@@ -50,7 +50,7 @@ export const ReverseVisitor: Visitor<
   },
 
   Param: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node,
     context = {}
   ) {
@@ -62,7 +62,7 @@ export const ReverseVisitor: Visitor<
   },
 
   Optional: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node,
     context
   ) {
@@ -75,7 +75,7 @@ export const ReverseVisitor: Visitor<
   },
 
   Root: function (
-    this: Visitor<Record<string, string>, string | false>,
+    this: Visitor<Record<string, string | number>, string | false>,
     node,
     context
   ) {

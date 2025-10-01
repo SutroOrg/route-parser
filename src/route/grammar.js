@@ -28,6 +28,7 @@ export default {
       ["\\)", 'return ")";'],
       ["\\*+\\w+", 'return "SPLAT";'],
       [":+\\w+", 'return "PARAM";'],
+      ["{+\\w+}+", 'return "PARAM";'],
       ["[\\w%\\-~\\n]+", 'return "LITERAL";'],
       [".", 'return "LITERAL";'],
       ["$", 'return "EOF";'],
@@ -51,7 +52,12 @@ export default {
     optional: [o("( expressions )", "new Optional({},[$2])")],
     literal: [o("LITERAL", "yytext")],
     splat: [o("SPLAT", "yytext.slice(1)")],
-    param: [o("PARAM", "yytext.slice(1)")],
+    param: [
+      o(
+        "PARAM",
+        "yytext.startsWith('{') ? yytext.slice(1, -1) : yytext.slice(1)"
+      ),
+    ],
   },
   startSymbol: "root",
 };
