@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SutroOrg/route-parser"
+    "url": "git+https://github.com/SutroOrg/route-parser.git"
   },
   "type": "module",
   "bugs": {
