@@ -2,3 +2,7 @@ node_modules
 __tests__
 scripts
 src
+.turbo
+eslint*
+jsdoc.*
+pnpm-*
